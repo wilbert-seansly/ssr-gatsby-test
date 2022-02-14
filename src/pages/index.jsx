@@ -126,8 +126,8 @@ const links = [
 ]
 
 // markup
-const IndexPage = ( {data, serverData} ) => {
-  console.log(data, serverData)
+const IndexPage = ( {data } ) => {
+  console.log(data )
   return (
     <main style={pageStyles}>
       <title>Home Page</title>
@@ -139,7 +139,7 @@ const IndexPage = ( {data, serverData} ) => {
           🎉🎉🎉
         </span>
       </h1>
-      <img alt="Happy dog" src={serverData.message} />
+      <img alt="Happy dog" src="" />
     </main>
   )
 }
@@ -153,22 +153,22 @@ export  const query = graphql`
     }
   }
 `
- export async function getServerData() {
-   try {
-     const res = await fetch(`https://dog.ceo/api/breeds/image/random`)
+//  export async function getServerData() {
+//    try {
+//      const res = await fetch(`https://dog.ceo/api/breeds/image/random`)
 
-     if (!res.ok) {
-       throw new Error(`Response failed`)
-     }
+//      if (!res.ok) {
+//        throw new Error(`Response failed`)
+//      }
 
-     return {
-       props: await res.json(),
-     }
-   } catch (error) {
-     return {
-       status: 500,
-       headers: {},
-       props: {}
-     }
-   }
- }
+//      return {
+//        props: await res.json(),
+//      }
+//    } catch (error) {
+//      return {
+//        status: 500,
+//        headers: {},
+//        props: {}
+//      }
+//    }
+//  }
